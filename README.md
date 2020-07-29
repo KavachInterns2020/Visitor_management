@@ -1,7 +1,8 @@
 # Visitor-management-system
 
-Three types of user :
-1.admin
-2.Eneryperson
-3.user(host)
+Three types of user :<br/>
+1.admin<br/>
+2.Eneryperson<br/>
+3.user(host)<br/>
+
 
