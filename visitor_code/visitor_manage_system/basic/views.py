@@ -151,27 +151,35 @@ def events(request):
 def createevent(request):
     form =EventForm()
     if request.method == 'POST':
+        organizer= Host.objects.filter(user = request.user)
+        tag =request.POST['tag']
+        event_date_time = request.POST['event_date_time']
+        event_purpose = request.POST['event_purpose']
+        for i in organizer:
+            org = i
+        event = Event(tag=tag,organizer=org,event_date_time=event_date_time,event_purpose=event_purpose)
+        event.save()
         form = EventForm(request.POST)
         if form.is_valid():
             form.save()
-            complete =0
-            event = Event.objects.all()
-            upcomming = event.count()
-            for i in event:
-                a = i.tag
-                if a == 'Complete':
-                    complete +=1
-                    i.option1 = True
-                    i.option2 = False
-                else:
-                    i.option1 = False
-                    i.option2 = True
-            upcomming = upcomming - complete
-            group = request.user.groups.all()[0].name
-            if group == 'host':
-                return redirect('/user')
-            elif group != 'host':
-                return render(request,'basic/events.html',{'form':event,'complete':complete,'upcomming':upcomming})
+        complete =0
+        event = Event.objects.all()
+        upcomming = event.count()
+        for i in event:
+            a = i.tag
+            if a == 'Complete':
+                complete +=1
+                i.option1 = True
+                i.option2 = False
+            else:
+                i.option1 = False
+                i.option2 = True
+        upcomming = upcomming - complete
+        group = request.user.groups.all()[0].name
+        if group == 'host':
+            return redirect('/user')
+        elif group != 'host':
+            return render(request,'basic/events.html',{'form':event,'complete':complete,'upcomming':upcomming})
     return render(request,'basic/create_event.html',{'form':form,'k':False})
 
 @login_required(login_url='/')
@@ -184,7 +192,11 @@ def updateevent(request,pk):
         if form.is_valid():
             form.save()
             event = Event.objects.all()
-            return redirect('/events',{'form':event,'k':False})
+            group = request.user.groups.all()[0].name
+            if group == 'host':
+                return redirect('/user')
+            if group != 'host':
+                return redirect('/events',{'form':event,'k':False})
             # return render(request,'basic/events.html',{'form':event,'k':False})
     context={'form':form,'k':False}
     return render(request,'basic/create_event.html',context)
