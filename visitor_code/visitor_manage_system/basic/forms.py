@@ -2,6 +2,7 @@ from django.forms import ModelForm
 from .models import *
 from django import forms
 from django.core import validators
+from django.contrib.auth.forms import UserCreationForm
 
 
 
@@ -9,16 +10,32 @@ def checkforpeople(value):
     if value>5:
         raise forms.ValidationError("residents are more than allowed")
 
+def checkforphone(value):
+    if len(str(value))>10 or len(str(value))<10:
+        raise forms.ValidationError("Enter valid phone number")
+
 
 class HostForm(ModelForm):
     no_of_people=forms.IntegerField(validators=[checkforpeople])
-    
+    Phone_no=forms.IntegerField(validators=[checkforphone])
     class Meta:
         model = Host
         fields = '__all__'
-        exclude = ['user']
+        exclude = ['user','email_id']
+
+
+
+class createuserform(UserCreationForm):
+
+    class Meta:
+        model=User
+        fields=['username','email','password1','password2']
+
+
+
 
 class VisitorForm(ModelForm):
+    Phone_no=forms.IntegerField(validators=[checkforphone])
     class Meta:
         model = Visitor
         fields = '__all__'
