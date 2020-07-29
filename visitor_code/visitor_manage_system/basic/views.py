@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from basic.models import *
+from .models import *
 import datetime
 from .forms import *
 from django.contrib import messages
@@ -9,6 +9,7 @@ from django.contrib.auth import authenticate,login,logout
 from .decorators import *
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
+from django.contrib import messages
 
 # @login_required(login_url='/')
 def index(request):
@@ -28,30 +29,30 @@ def host(request):
 @login_required(login_url='/')
 @allowed_users(allowed_roles = ['admin'])
 def createhost(request):
-    form = HostForm()
-    if request.method == 'POST':
-        form = HostForm(request.POST)
-        if form.is_valid():
-            username = request.POST['username']
-            password = request.POST['password']
-            email = request.POST['email_id']
+    form=HostForm()
+    form1=createuserform()
+    if request.method == 'POST': 
+        form=HostForm(request.POST)
+        form1=createuserform(request.POST)
+        if form1.is_valid() and form.is_valid(): 
+            email = request.POST['email']
             Phone_no = request.POST['Phone_no']
             flat_no = request.POST['flat_no']
             no_of_people = request.POST['no_of_people']
             name = request.POST['name']
-
-            myuser = User.objects.create_user(username,email,password)
-            myuser.first_name = username
-            myuser.last_name = username
-            myuser.save()
-            host = Host(user=myuser,name=name,email_id=email,no_of_people=no_of_people,flat_no=flat_no,Phone_no=Phone_no)
+            user=form1.save()
+            host = Host(user=user,name=name,email_id=email,no_of_people=no_of_people,flat_no=flat_no,Phone_no=Phone_no)
             host.save()
-            group = Group.objects.get(name='host')
-            myuser.groups.add(group)
+            
+           
+            #group = Group.objects.get(name='host')
             host =Host.objects.all().order_by('host_id')
             count = host.count()
-            return render(request,'basic/host.html',{'host':host,'count':count})
-    context={'form':form,'k':False,'S':True}
+            return render(request,'basic/host.html',{'host':host,'count':count,'k':False})
+        else:
+            return render(request,'basic/create_host.html',{"form":form,"form1":form1,"error":"Please use a Unique Username or a stronger Password and enter valid data for Signup"})
+
+    context={'form1':form1,'k':False,'S':True,'form':form}
     return render(request,'basic/create_host.html',context)
 # @admin_only
 @login_required(login_url='/')
