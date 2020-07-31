@@ -5,68 +5,84 @@
 
 
 
-
-
-
-
-
-<div class="row mx-5 my-5">
-	<div class="col-md mx-3">
-		<div class="card card-body">
-			<h5>Events:</h5>
-			<hr>
-			<a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'createevent' %}">Create events</a>
-	
-			<div>
-				<h6></h6>
-			</div>
-		</div>
-	</div>
-
-
-    
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="row">
-    <div class="col-md mx-5 my-5">
-        <div class="card card-body">
-            <table class="table">
-                <tr>
-                    <th>Events Id</th>
-                    <th>organizer</th>
-                    <th>tag</th>
-                    <th>event_date_time</th>
-                    <th>event_purpose</th>
-                    <th></th>
-                    <th></th>
-                </tr>
-               
-                {% for i in form  %}
-                 <tr>
-                    <th>{{i.event_id}}</th>
-                    <th>{{i.organizer}}</th>
-                    <th>{{i.tag}}</th>
-                    <th>{{i.event_date_time}}</th>
-                    <th>{{i.event_purpose}}</th>
-                    <th><a class="btn btn-sm btn-info"href="{% url  'updateevent' i.event_id  %}">update</a></th>
-                    <th><a class="btn btn-sm btn-danger"href="{% url  'deleteevent' i.event_id  %}">Delete</a></th>
-                </tr>
-                {% endfor %}
-            </table>
+<html>
+    <head>
+        <title>Events</title>
+        <style>
+        .display-5{
+            text-align: center;
+            font-style: italic;
+        }
+        tr{
+            text-align: center;
+        }
+        .btn-sm{
+            width: 70px;
+            margin-left: 8px;
+        }
+        #asdf{
+            width: 60%;
+            height: 150px;
+            margin: auto;
+            background: url("https://fuelstorycounty.com/wp-content/uploads/2020/01/istockphoto-500432244-612x612-1.jpg");
+            background-size: 500px 200px;
+        }
+        h5{
+            text-align: center;
+        }
+        
+        </style>
+    </head>
+    <body>
+        <div class="row mx-5 my-5">
+            <div class="col-md mx-3">
+                <div class="card card-body" id="asdf" >
+                    <h5>CREATE NEW EVENT HERE!🎉</h5>
+                    <hr>
+                    <a class="btn btn-info  btn-sm btn-block" href="{% url 'createevent' %}" style="width: 50%; margin: auto; font-weight: 700;">Create Event</a>
+            
+                    
+                </div>
+            </div>
         </div>
-    </div>
-</div>  
+        
+        
+        <div class="row">
+            <div class="col-md mx-5 my-5">
+                <div class="card card-body" style="width: 90%; margin: auto;">
+                    <table class="table">
+                        <h3 class="display-5">Event Details</h3>
+                        <tr style="background-color: rgb(138, 138, 138);">
+                            <th>EVENT ID</th>
+                            <th>ORGANIZER</th>
+                            <th>TAG</th>
+                            <th>EVENT DATE & TIME</th>
+                            <th>EVENT PURPOSE</th>
+                            <th>EDIT DETAILS</th> 
+                            
+                        </tr>
+                       
+                        {% for i in form  %}
+                         <tr>
+                            <th>{{i.event_id}}</th>
+                            <th>{{i.organizer}}</th>
+                            <th>{{i.tag}}</th>
+                            <th>{{i.event_date_time}}</th>
+                            <th>{{i.event_purpose}}</th>
+                            <th>
+                                <a class="btn btn-sm btn-info" href="{% url  'updateevent' i.event_id  %}">Update</a> 
+                                <a class="btn btn-sm btn-danger" href="{% url  'deleteevent' i.event_id  %}">Delete</a>
+                            </th>
+                            
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div> 
+    </body>
+</html>
+
 
 
 {% endblock %} 
