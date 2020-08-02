@@ -277,30 +277,30 @@ def eventvisitor(request):
     return render(request,'basic/eventvisitor.html',{'form':form,'k':False})
 
 
-@unauthenticated_user
-def handleSignup(request):
-    if request.method == 'POST':
-        username = request.POST['username']
-        fname = request.POST['fname']
-        lname = request.POST['lname']
-        email = request.POST['email']
-        pass1 = request.POST['pass1']
-        pass2 = request.POST['pass2']
-        myuser = User.objects.create_user(username,email,pass1)
-        myuser.first_name = fname
-        myuser.last_name = lname
-        myuser.save()
+# @unauthenticated_user
+# def handleSignup(request):
+#     if request.method == 'POST':
+#         username = request.POST['username']
+#         fname = request.POST['fname']
+#         lname = request.POST['lname']
+#         email = request.POST['email']
+#         pass1 = request.POST['pass1']
+#         pass2 = request.POST['pass2']
+#         myuser = User.objects.create_user(username,email,pass1)
+#         myuser.first_name = fname
+#         myuser.last_name = lname
+#         myuser.save()
 
-        host = Host(user=myuser,name=str(str(fname)+str(lname)),email_id=email)
-        host.save()
-        group = Group.objects.get(name='host')
-        myuser.groups.add(group)
+#         host = Host(user=myuser,name=str(str(fname)+str(lname)),email_id=email)
+#         host.save()
+#         group = Group.objects.get(name='host')
+#         myuser.groups.add(group)
 
 
-        messages.success(request,'Account have be created')
-        redirect('/')
-    visitor = VisitDetails.objects.all().order_by('-visit_id')
-    return render(request,'basic/dashboard.html',{'visitor':visitor,'k':True})
+#         messages.success(request,'Account have be created')
+#         redirect('/')
+#     visitor = VisitDetails.objects.all().order_by('-visit_id')
+#     return render(request,'basic/dashboard.html',{'visitor':visitor,'k':True})
 
 @unauthenticated_user
 def handlelogin(request):
