@@ -15,9 +15,14 @@ def checkforphone(value):
         raise forms.ValidationError("Enter valid phone number")
 
 
+def checkforage(value):
+    if value<21:
+        raise forms.ValidationError("Age is less than required (minimum is 21)")
+
 class HostForm(ModelForm):
     no_of_people=forms.IntegerField(validators=[checkforpeople])
     Phone_no=forms.IntegerField(validators=[checkforphone])
+    age = forms.IntegerField(validators=[checkforage])
     class Meta:
         model = Host
         fields = '__all__'
@@ -33,9 +38,19 @@ class createuserform(UserCreationForm):
 
 
 
+    def clean_email(self):
+        email = self.cleaned_data.get("email")
+        user_count=User.objects.filter(email=email).count()
+        if user_count >0:
+            raise forms.ValidationError("Enter different email")
+        return email
+
+
+
 
 class VisitorForm(ModelForm):
     Phone_no=forms.IntegerField(validators=[checkforphone])
+    age = forms.IntegerField(validators=[checkforage])
     class Meta:
         model = Visitor
         fields = '__all__'
