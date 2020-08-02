@@ -214,6 +214,9 @@ def deleteevent(request,pk):
     event = Event.objects.get(event_id=pk)
     if request.method == "POST":
         event.delete()
+        group = request.user.groups.all()[0].name
+        if group == 'host':
+            return redirect('/user')
         event = Event.objects.all()
         return render(request,'basic/events.html',{'form':event,'k':False})
     return render(request,'basic/delete_event.html',{'form':event,'k':False}) 
