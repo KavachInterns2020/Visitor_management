@@ -14,7 +14,7 @@ urlpatterns = [
     path('host/',views.host,name='host'),
     # path('host/<str:pk>',views.hostdynamic,name='hostdynamic'),
     path('create_host/',views.createhost,name='createhost'),
-    path('update_host/<str:pk>',views.updateHost,name='updatehost'),
+    path('update_host/<str:id>',views.updateHost,name='updatehost'),
     path('delete_host/<str:pk>',views.deleteHost,name='deletehost'),
 
 

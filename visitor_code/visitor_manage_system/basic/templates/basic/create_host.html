@@ -24,23 +24,34 @@
             {%  csrf_token %}
             <div class="col mx-5 my-5" id="frm">
                         
-                        <h4>{{error}}</h4>
-                        <h4>Username : <span>{{form1.username}}</span></h4> 
-                        <br>
-                        <h4>Email Address : <span>{{form1.email}}</span></h4>
-                        <br>
-                        <h4>Name : <span>{{form.name}}</span></h4>
-                        <br>
-                        <h4>Phone No.  : <span>{{form.Phone_no}}</span></h4>
-                        <br>
-                        <h4>Flat No. : <span>{{form.flat_no}}</span></h4>
-                        <br>
-                        <h4>No. of people  : <span>{{form.no_of_people}}</span></h4>
-                        <br>
-                        <h4>Password : <span>{{form1.password1}}</span></h4>
-                        <br>
-                        <h4>Confirm Password : <span>{{form1.password2}}</span></h4>
-                        <br>
+                <h4>{{error}}</h4>
+                <h4>Username :</h4>{{form1.username}}
+                <br><br>
+                <h4>Email Address :</h4>{{form1.email}}
+                <br>
+                <p>{{email_check_msg}}</p>
+                <h4>Name :</h4>{{form.name}}
+                <br><br>
+                <h4>Phone_no  :</h4>{{form.Phone_no}}
+                <br>
+                <p>{{phone_no_msg}}</p>
+                <h4>Age :</h4>{{form.age}}
+                <br>
+                <p>{{age_msg}}</p>
+                <h4>Gender:</h4>{{form.gender}}
+                <br><br>
+                <h4>flat_no :</h4>{{form.flat_no}}
+                <br><br>
+                <h4>no_of_people  :</h4>{{form.no_of_people}}
+                <br>
+                <p>{{no_of_people_msg}}</p>
+                <h4>Password :</h4>{{form1.password1}}
+                <br>
+                {{message1}}<br>
+                {{message2}}<br>
+                {{message3}}
+                <h4>Confirm Password :</h4>{{form1.password2}}
+                <br><br>
                        
                         <!-- {{form.as_p}} -->
                         <input class="btn btn-lg " type="submit" name="Submit" style="width: auto; background-color: rgb(170, 167, 167);"> 

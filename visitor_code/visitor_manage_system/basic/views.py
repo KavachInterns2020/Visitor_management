@@ -10,6 +10,7 @@ from .decorators import *
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
 from django.contrib import messages
+from django.shortcuts import get_object_or_404
 
 # @login_required(login_url='/')
 def index(request):
@@ -38,27 +39,30 @@ def createhost(request):
             email = request.POST['email']
             Phone_no = request.POST['Phone_no']
             flat_no = request.POST['flat_no']
+            age =      request.POST['age']
+            gender =      request.POST['gender']
             no_of_people = request.POST['no_of_people']
             name = request.POST['name']
             user=form1.save()
-            host = Host(user=user,name=name,email_id=email,no_of_people=no_of_people,flat_no=flat_no,Phone_no=Phone_no)
+            host = Host(user=user,name=name,age=age,gender=gender,email_id=email,no_of_people=no_of_people,flat_no=flat_no,Phone_no=Phone_no)
             host.save()
             
            
-            #group = Group.objects.get(name='host')
+            group = Group.objects.get(name='host')
+            user.groups.add(group)
             host =Host.objects.all().order_by('host_id')
             count = host.count()
             return render(request,'basic/host.html',{'host':host,'count':count,'k':False})
         else:
-            return render(request,'basic/create_host.html',{"form":form,"form1":form1,"error":"Please use a Unique Username or a stronger Password and enter valid data for Signup"})
+            return render(request,'basic/create_host.html',{"form":form,"form1":form1,"email_check_msg":"Enter unique email","age_msg":"Minimum age required is 21","phone_no_msg":"Enter valid phone number(with 10 digits)","no_of_people_msg":"Number of residents should be less than 5","error":"Please use a Unique Username or a stronger Password and enter valid data for Signup","message1":"Your password can’t be too similar to your other personal information.","message2": "Your password must contain at least 4 characters","message3":"Your password can’t be a commonly used password."})
 
-    context={'form1':form1,'k':False,'S':True,'form':form}
+    context={'form1':form1,'k':False,'S':True,'form':form,"email_check_msg":"Enter unique email","age_msg":"Minimum age required is 21 ","phone_no_msg":"Enter valid phone number(with 10 digits)","no_of_people_msg":"Number of residents should be less than 5","message1":"Your password can’t be too similar to your other personal information.","message2": "Your password must contain at least 4 characters","message3":"Your password can’t be a commonly used password."}
     return render(request,'basic/create_host.html',context)
 # @admin_only
 @login_required(login_url='/')
 @allowed_users(allowed_roles = ['admin'])
-def updateHost(request,pk):
-    host = Host.objects.get(host_id=pk)
+def updateHost(request,id=None):
+    host = Host.objects.get(host_id=id)
     form = HostForm(instance=host)
     if request.method == 'POST':
         form = HostForm(request.POST,request.FILES,instance=host)
@@ -66,9 +70,12 @@ def updateHost(request,pk):
             form.save()
             host =Host.objects.all().order_by('host_id')
             count = host.count()
-            return render(request,'basic/host.html',{'host':host,'count':count,'k':False,'S':False})    
-    context={'form':form,'k':False,'S':False}
-    return render(request,'basic/create_host.html',context)
+            return render(request,'basic/host.html',{'host':host,'count':count,'k':False,'S':False})   
+        else:
+            return render(request,'basic/update_host.html',{"form":form,"error":"Please enter valid data to update Host","age_msg":"Minimum age required is 21","phone_no_msg":"Enter valid phone number(with 10 digits)","no_of_people_msg":"Number of residents should be less than 5"})
+    context={'form':form,'k':False,'S':False,"phone_no_msg":"Enter valid phone number(with 10 digits)","age_msg":"Minimum age required is 21","no_of_people_msg":"Number of residents should be less than 5"}
+    return render(request,'basic/update_host.html',context)
+
 
 @login_required(login_url='/')
 @allowed_users(allowed_roles = ['admin'])
@@ -295,18 +302,18 @@ def handleSignup(request):
 @unauthenticated_user
 def handlelogin(request):
     if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(username = username,password=password)
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request,username = username,password=password)
         if user is not None:
             login(request,user)
             group = request.user.groups.all()[0].name
             if group == 'host':
-                return redirect('/user')
+               return redirect('/user')
             if group != 'host':
-                return redirect('/')
+                return redirect('/') 
         else:
-            messages.error(request,'Creadential wrond')
+            messages.error(request,'Creadential wrong')
             visitor = VisitDetails.objects.all().order_by('-visit_id')
             return render(request,'basic/dashboard.html',{'visitor':visitor,'k':True})
     visitor = VisitDetails.objects.all().order_by('-visit_id')

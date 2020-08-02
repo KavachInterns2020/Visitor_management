@@ -3,27 +3,41 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Host(models.Model):
+
     user = models.OneToOneField(User,null=True,on_delete=models.CASCADE)
+    GENDER = (
+        ('Male','Male'),
+        ('Female','Female'),
+        ('Others','Others')
+    )
     host_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=200,blank=False,default=' ')
     Phone_no = models.IntegerField(default=91)       
-    email_id = models.EmailField(max_length=200,default='',unique=True)
+    email_id = models.EmailField(max_length=200,default='')
+    age= models.IntegerField(default=21)
+    gender = models.CharField(max_length=10,choices=GENDER,default='Female')
     flat_no = models.IntegerField(default=0)
     no_of_people = models.IntegerField(blank=False,default=0)
-    
     host_image = models.ImageField(null=True,blank=True,default='download.jpeg')
-
+    
     def __str__(self):
         return str(self.name)
 
 class Visitor(models.Model):
     visitor_id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=200,blank=False,default='',unique=True)
+    GENDER = (
+        ('Male','Male'),
+        ('Female','Female'),
+        ('Others','Others')
+    )
+    name = models.CharField(max_length=200,blank=False,default='')
     Phone_no = models.CharField(max_length=12,blank=False,default=' ')
+    age= models.IntegerField(default=21)
+    gender = models.CharField(max_length=10,choices=GENDER,default='Female')
     email_id = models.EmailField(max_length=200,blank=False,default='')
     visitor_image = models.ImageField(null=True,blank=True,default='')
     id_proof = models.ImageField(null=True,default='',blank=True)
-
+    
     def __str__(self):
         return str('Name :')+str(self.name)+str('...Id :')+str(self.visitor_id)+str('...email_id:')+str(self.email_id)
 
@@ -72,7 +86,7 @@ class Event(models.Model):
     tag = models.CharField(max_length=12,choices=TAG,blank=True,null=True,default='blank')
     event_id = models.AutoField(primary_key=True)
     organizer = models.ForeignKey(Host,null=True, on_delete=models.SET_NULL)
-    event_date_time =models.DateTimeField(null=False,unique=True,max_length=20,default='') 
+    event_date_time =models.DateTimeField(null=False,max_length=20,default='') 
     event_purpose = models.CharField(max_length=12,choices=EVENT_PURPOSE)
 
     def __str__(self):
