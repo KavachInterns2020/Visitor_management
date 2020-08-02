@@ -11,9 +11,9 @@ class Host(models.Model):
         ('Others','Others')
     )
     host_id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=200,blank=False,default=' ')
+    name = models.CharField(max_length=200,blank=False,default=' ',unique=True)
     Phone_no = models.IntegerField(default=91)       
-    email_id = models.EmailField(max_length=200,default='')
+    email_id = models.EmailField(max_length=200,default='',unique=True)
     age= models.IntegerField(default=21)
     gender = models.CharField(max_length=10,choices=GENDER,default='Female')
     flat_no = models.IntegerField(default=0)
@@ -86,7 +86,7 @@ class Event(models.Model):
     tag = models.CharField(max_length=12,choices=TAG,blank=True,null=True,default='blank')
     event_id = models.AutoField(primary_key=True)
     organizer = models.ForeignKey(Host,null=True, on_delete=models.SET_NULL)
-    event_date_time =models.DateTimeField(null=False,max_length=20,default='') 
+    event_date_time =models.DateTimeField(null=False,max_length=20,default='',unique=True) 
     event_purpose = models.CharField(max_length=12,choices=EVENT_PURPOSE)
 
     def __str__(self):
