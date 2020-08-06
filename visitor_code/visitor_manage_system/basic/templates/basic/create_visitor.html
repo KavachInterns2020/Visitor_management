@@ -1,27 +1,51 @@
 {% extends 'basic/dashboard.html' %}
 
 {% block content %}
-{% load static %}
+<!Doctype html>
+<html>
+    <head>
+        <title>Create visitor</title>
+        <style>
+        form{
+            width: 60%;
+        margin-left: 500px;
+        }
+        span{
+            font-size: 20px;
+        }
+        input{
+            width: 275px;
+        }
+        </style>
+    </head>
+    <body style="background-color: darkgray;">
 
-
-<form action="" method="POST" enctype='multipart/form-data'>
-    {%  csrf_token %}
-<div class='row mx-5 '>
-    <div class = 'col-md-6'>
+         <form action="" method="POST" enctype='multipart/form-data'>
+         {%  csrf_token %}
+        <div class='row mx-5 '>
+        <div class = 'col-md-6'>
         <div class="card-body  col mx-5 my-5" >
-            {% comment %} <h4>Name :</h4>{{form.name}}
+            <h4>Name :<br></h4>{{form.name}}
             <br><br>
             <h4>Phone No :</h4>{{form.Phone_no}}
             <br><br>
-            <h4>Email Id</h4>{{form.email_id}}
+            <h4>Age :</h4>{{form.email_id}}
+            <br><br> 
+            <h4>Gender :</h4>{{form.gender}}
             <br><br>
-            <br><br> {% endcomment %}
-            {{form.as_p}}
-            <input type="submit" name="Submit"> 
-        </div>
-    </div>
-</div>
+            <h4>Email Id :</h4>{{form.email_id}}
+            <br><br>
+            <h4>Visitor image :</h4>{{form.visitor_image}}
+            <br><br>
+            <h4>Id proof :</h4>{{form.id_proof}}
+            <br><br>
+            <!--{{form.as_p}}-->
+            <input type="submit" name="Submit" style = "background-color: rgba(0, 0, 255, 0.363);"> 
+         </div>
+       </div>
+     </div>
 </form>
-
+</body>
+</html>
 
 {% endblock %}
