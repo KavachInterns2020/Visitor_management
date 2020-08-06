@@ -32,7 +32,7 @@ class Visitor(models.Model):
         ('Others','Others')
     )
     name = models.CharField(max_length=200,blank=False,default='')
-    Phone_no = models.CharField(max_length=12,blank=False,default=' ')
+    Phone_no = models.IntegerField(max_length=10,blank=False,default=' ')
     age= models.IntegerField(default=21)
     gender = models.CharField(max_length=10,choices=GENDER,default='Female')
     email_id = models.EmailField(max_length=200,blank=False,default='')
@@ -54,8 +54,13 @@ class VisitDetails(models.Model):
         ('Event','Event')
     )
     DURATION = (
-        ('1 hours','1 hours'),
+        ('1 hour','1 hour'),
+        ('2 hours','2 hours'),
+        ('3 hours','3 hours'),
+        ('4 hours','4 hours'),
         ('5 hours','5 hours'),
+        ('10 hours','10 hours'),
+        ('12 hours','12 hours'),
         ('1 day','1 day'),
         ('1 week','1 week'),
         ('1 month','1 month'),
