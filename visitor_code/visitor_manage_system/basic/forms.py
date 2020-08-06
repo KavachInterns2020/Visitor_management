@@ -8,21 +8,33 @@ from django.contrib.auth.forms import UserCreationForm
 
 def checkforpeople(value):
     if value>5:
-        raise forms.ValidationError("residents are more than allowed")
+        raise forms.ValidationError("Residents are more than allowed")
 
 def checkforphone(value):
     if len(str(value))>10 or len(str(value))<10:
         raise forms.ValidationError("Enter valid phone number")
+
+    for num in Host.objects.all():
+            if num.Phone_no == value:
+                raise forms.ValidationError("Enter a unique phone number")
+
 
 
 def checkforage(value):
     if value<21:
         raise forms.ValidationError("Age is less than required (minimum is 21)")
 
+
+def checkforflat_no(value):
+        for instance in Host.objects.all():
+            if instance.flat_no == value:
+                raise forms.ValidationError("This flat is not available")
+
 class HostForm(ModelForm):
     no_of_people=forms.IntegerField(validators=[checkforpeople])
     Phone_no=forms.IntegerField(validators=[checkforphone])
     age = forms.IntegerField(validators=[checkforage])
+    flat_no = forms.IntegerField(validators=[checkforflat_no])
     class Meta:
         model = Host
         fields = '__all__'
@@ -45,12 +57,21 @@ class createuserform(UserCreationForm):
             raise forms.ValidationError("Enter different email")
         return email
 
+    def clean_username(self):
+        username = self.cleaned_data.get("username")
+        user_count=User.objects.filter(username=username).count()
+        if user_count >0:
+            raise forms.ValidationError("Enter different username,this is already taken.")
+        return username  
+
+def checkforphone1(value):
+    if len(str(value))>10 or len(str(value))<10:
+        raise forms.ValidationError("Enter valid phone number")
 
 
 
 class VisitorForm(ModelForm):
-    Phone_no=forms.IntegerField(validators=[checkforphone])
-    age = forms.IntegerField(validators=[checkforage])
+    Phone_no=forms.IntegerField(validators=[checkforphone1])
     class Meta:
         model = Visitor
         fields = '__all__'
