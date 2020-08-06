@@ -27,24 +27,41 @@
                 <h4>{{error}}</h4>
                 <h4>Username :</h4>{{form1.username}}
                 <br><br>
+                <strong>{{ form1.username.errors }}</strong>
                 <h4>Email Address :</h4>{{form1.email}}
                 <br>
                 <p>{{email_check_msg}}</p>
+                  <strong>{{ form1.email.errors }}</strong>
                 <h4>Name :</h4>{{form.name}}
                 <br><br>
-                <h4>Phone_no  :</h4>{{form.Phone_no}}
+                <h4>Phone number  :</h4>{{form.Phone_no}}
                 <br>
                 <p>{{phone_no_msg}}</p>
+                {% if form.Phone_no.errors %}
+                <ul>
+                {% for error in form.Phone_no.errors %}
+                <li><strong>{{ error }}</strong></li>
+                {% endfor %}
+                </ul>
+                {% endif %}
                 <h4>Age :</h4>{{form.age}}
                 <br>
                 <p>{{age_msg}}</p>
+                <strong> {{ form.age.errors }}</strong>
                 <h4>Gender:</h4>{{form.gender}}
                 <br><br>
-                <h4>flat_no :</h4>{{form.flat_no}}
+                <h4>flat number :</h4>{{form.flat_no}}
                 <br><br>
-                <h4>no_of_people  :</h4>{{form.no_of_people}}
+                <strong> {{ form.flat_no.errors }}</strong>
+            <!--     {% if form.flat_no.errors %}
+                  <strong></strong>
+                 {% endif %} -->
+                <h4>Number of people  :</h4>{{form.no_of_people}}
                 <br>
                 <p>{{no_of_people_msg}}</p>
+                {% if form.no_of_people.errors %}
+                  <strong>{{ form.no_of_people.errors }}</strong>
+                 {% endif %}
                 <h4>Password :</h4>{{form1.password1}}
                 <br>
                 {{message1}}<br>

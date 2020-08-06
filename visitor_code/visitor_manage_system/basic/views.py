@@ -188,7 +188,7 @@ def createevent(request):
             return redirect('/user')
         elif group != 'host':
             return render(request,'basic/events.html',{'form':event,'complete':complete,'upcomming':upcomming})
-    return render(request,'basic/create_event.html',{'form':form,'k':False})
+    return render(request,'basic/create_event.html',{'form':form,'k':False,"check_msg":"One Host can create only one event for a day"})
 
 @login_required(login_url='/')
 @allowed_users(allowed_roles = ['admin','host'])
@@ -341,7 +341,7 @@ def userpage(request):
         b = 'b'
         forms = Event.objects.all()
         for i in forms:
-            if str(i.organizer) == host.name:
+            if str(i.organizer) == str(host.name)+"(flat number"+str(host.flat_no)+")":
                 k.append(i.event_id)
         for i in range(len(k)):
             b = b+str(i)

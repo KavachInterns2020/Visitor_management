@@ -11,7 +11,7 @@ class Host(models.Model):
         ('Others','Others')
     )
     host_id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=200,blank=False,default=' ',unique=True)
+    name = models.CharField(max_length=200,blank=False,default=' ')
     Phone_no = models.IntegerField(default=91)       
     email_id = models.EmailField(max_length=200,default='',unique=True)
     age= models.IntegerField(default=21)
@@ -21,7 +21,8 @@ class Host(models.Model):
     host_image = models.ImageField(null=True,blank=True,default='download.jpeg')
     
     def __str__(self):
-        return str(self.name)
+        hostreturn=str(self.name)+"(flat number"+str(self.flat_no)+")"
+        return hostreturn
 
 class Visitor(models.Model):
     visitor_id = models.AutoField(primary_key=True)
@@ -92,7 +93,10 @@ class Event(models.Model):
     def __str__(self):
         return str(self.organizer)+str('-----') +str(self.event_purpose)
 
-
+    
+    class Meta:
+        
+        unique_together=[['organizer','event_date_time']]
 
 class EventVisitor(models.Model):
     event_visitor_id = models.AutoField(primary_key=True)
