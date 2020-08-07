@@ -29,7 +29,19 @@
 			
 			<form method="POST" action="" enctype="multipart/form-data">
 				{% csrf_token %}
-				{{form.as_p}}
+                 <br><br>
+                 <h4>Name :</h4>{{form.name}}
+                 <br><br>
+                 <h4>Phone Number  :</h4>{{form.Phone_no}}
+                 <br><br>
+                 <h4>Age  :</h4>{{form.age}}
+                 <br><br>
+                 <h4>Gennder  :</h4>{{form.gender}}
+                 <br><br>
+                 <h4>No of People :</h4>{{form.no_of_people}}
+                 <br><br>
+                 <h4>Host Image :</h4>{{form.host_image}}
+                 <br><br>
 			<input class="btn btn-primary" type="submit" name="Update Information">
 			</form>
 		</div>

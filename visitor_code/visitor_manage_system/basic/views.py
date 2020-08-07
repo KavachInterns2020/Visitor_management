@@ -361,6 +361,5 @@ def accountsettings(request):
     form = HostForm(instance=user)
     if request.method == 'POST':
         form = HostForm(request.POST,request.FILES,instance=user)
-        if form.is_valid():
-            form.save()
+        form.save()
     return render(request,'basic/account_settings.html',{'form':form})
