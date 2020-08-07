@@ -13,16 +13,7 @@
 </head>
 
 <body>
-
-
-
-     <div class="container">
-        {% for message in messages %}
-            {{message}}
-        {% endfor %}
-      </div> 
-
-
+     
   <nav class=" navbar navbar-expand-lg navbar-dark bg-dark  my-3">
     <a class="navbar-brand" href="#">Visitor Mgmt System</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
@@ -122,7 +113,11 @@
 
   {% endif %}
   </nav>
-
+  <div class="container btn-primary ">
+    {% for message in messages %}
+        {{message}}
+    {% endfor %}
+  </div> 
 
   <!-- Button trigger signup -->
 
