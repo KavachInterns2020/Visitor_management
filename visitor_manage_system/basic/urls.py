@@ -32,6 +32,7 @@ urlpatterns = [
     path('create_events/',views.createevent,name='createevent'),
     path('update_events/<str:pk>',views.updateevent,name='updateevent'),
     path('delete_event/<str:pk>',views.deleteevent,name='deleteevent'),
+    path('analysispage/<str:pk>',views.analysispage,name='analysispage'),
 
 
     path('user/',views.userpage,name='userpage'),

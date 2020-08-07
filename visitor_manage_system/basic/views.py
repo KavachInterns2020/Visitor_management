@@ -382,3 +382,10 @@ def accountsettings(request):
         form.save()
         messages.success(request,f"Account successfully updated ")
     return render(request,'basic/account_settings.html',{'form':form})
+
+@login_required(login_url='/')
+@allowed_users(allowed_roles = ['host'])
+def analysispage(request,pk):
+    name = Event.objects.get(event_id=pk)
+    people = EventVisitor.objects.filter(event_info=name)
+    return render(request,'basic/analysispage.html',{'people':people,'event':name})

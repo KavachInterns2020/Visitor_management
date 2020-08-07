@@ -2,12 +2,6 @@
 
 {% block content %}
 {% load static %}
- <div class="container">
-    {% for message in messages %}
-        {{message}}
-    {% endfor %}
-</div> 
-
 <form action="" method="POST">
     {%  csrf_token %}
     <div class="col mx-5 my-5" >

@@ -1,0 +1,49 @@
+ 
+{% extends 'basic/dashboard.html' %}
+{% load static %}
+{% block content %}
+
+<div class="jumbotron" style="width:75%; margin:auto;">
+    <!-- <tr class="jumbotron"> -->
+    <h3>Event :  <span style="font-size: 25px;">{{event.event_purpose}}</span></h3>
+    <h4>Event date :<span>{{event.event_date_time}}</span></h4>
+</div>
+<br/>
+
+
+        
+<div class="row">
+    <div class="col-md mx-5 my-5">
+        <div class="card card-body"  style="width: 90%; margin: auto;">
+            <table class="table">
+                <h3 style="text-align: center; font-style: bold;">people who visited event:</h3>
+                <tr style="background-color: rgb(138, 138, 138);">
+                    <th>Name</th>
+                    <th>Phone_no</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Email Id</th>
+                    <th>Visitor Image</th>
+                </tr>
+               
+                {% for i in people  %}
+                 <tr>
+                    <th>{{i.event_visitor_info.name}}</th>
+                    <th>{{i.event_visitor_info.Phone_no}}</th>
+                    <th>{{i.event_visitor_info.age}}</th>
+                    <th>{{i.event_visitor_info.gender}}</th>
+                    <th>{{i.event_visitor_info.email_id}}</th>
+                    <!-- <th>{{i.event_visitor_info.visitor_image}}</th> -->
+                    <th><img class="profile-pic" src="/static/images/{{i.event_visitor_info.visitor_image}}" width="80px" height="50px"></th>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>  
+
+
+
+
+
+{% endblock %}
