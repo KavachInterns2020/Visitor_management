@@ -159,17 +159,29 @@ def events(request):
 def createevent(request):
     form =EventForm()
     if request.method == 'POST':
-        organizer= Host.objects.filter(user = request.user)
-        tag =request.POST['tag']
-        event_date_time = request.POST['event_date_time']
-        event_purpose = request.POST['event_purpose']
-        for i in organizer:
-            org = i
-        event = Event(tag=tag,organizer=org,event_date_time=event_date_time,event_purpose=event_purpose)
-        event.save()
-        form = EventForm(request.POST)
-        if form.is_valid():
-            form.save()
+        group = request.user.groups.all()[0].name
+        if group == 'host':
+            organizer= Host.objects.filter(user = request.user)
+            tag =request.POST['tag']
+            event_date_time = request.POST['event_date_time']
+            event_purpose = request.POST['event_purpose']
+            for i in organizer:
+                org = i
+            event = Event(tag=tag,organizer=org,event_date_time=event_date_time,event_purpose=event_purpose)
+            event.save()
+        if group != 'host':
+            organizer= int(request.POST['organizer'])
+            organizer = Host.objects.filter(host_id=organizer)
+            tag =request.POST['tag']
+            event_date_time = request.POST['event_date_time']
+            event_purpose = request.POST['event_purpose']
+            for i in organizer:
+                org = i
+            event = Event(tag=tag,organizer=org,event_date_time=event_date_time,event_purpose=event_purpose)
+            event.save()
+        # form = EventForm(request.POST)
+        # if form.is_valid():
+        #     form.save()
         complete =0
         event = Event.objects.all()
         upcomming = event.count()
