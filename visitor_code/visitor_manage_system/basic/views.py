@@ -30,10 +30,10 @@ def host(request):
 @login_required(login_url='/')
 @allowed_users(allowed_roles = ['admin'])
 def createhost(request):
-    form=HostForm()
+    form=HostForm1()
     form1=createuserform()
     if request.method == 'POST': 
-        form=HostForm(request.POST)
+        form=HostForm1(request.POST)
         form1=createuserform(request.POST)
         if form1.is_valid() and form.is_valid(): 
             email = request.POST['email']
@@ -63,9 +63,9 @@ def createhost(request):
 @allowed_users(allowed_roles = ['admin'])
 def updateHost(request,id=None):
     host = Host.objects.get(host_id=id)
-    form = HostForm(instance=host)
+    form = HostForm1(instance=host)
     if request.method == 'POST':
-        form = HostForm(request.POST,request.FILES,instance=host)
+        form = HostForm1(request.POST,request.FILES,instance=host)
         if form.is_valid():
             form.save()
             host =Host.objects.all().order_by('host_id')
@@ -370,8 +370,9 @@ def userpage(request):
 @allowed_users(allowed_roles = ['admin','host'])
 def accountsettings(request):
     user = request.user.host
-    form = HostForm(instance=user)
+    form = HostForm1(instance=user)
     if request.method == 'POST':
         form = HostForm(request.POST,request.FILES,instance=user)
         form.save()
+        messages.success(request,f"Account successfully updated ")
     return render(request,'basic/account_settings.html',{'form':form})

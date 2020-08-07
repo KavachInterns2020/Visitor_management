@@ -38,8 +38,17 @@ class HostForm(ModelForm):
     class Meta:
         model = Host
         fields = '__all__'
-        exclude = ['user','email_id']
+        exclude = ['user','email_id','flat_no']
 
+class HostForm1(ModelForm):
+    no_of_people=forms.IntegerField(validators=[checkforpeople])
+    Phone_no=forms.IntegerField(validators=[checkforphone])
+    age = forms.IntegerField(validators=[checkforage])
+    #flat_no = forms.IntegerField(validators=[checkforflat_no])
+    class Meta:
+        model = Host
+        fields = '__all__'
+        exclude = ['user','email_id']
 
 
 class createuserform(UserCreationForm):

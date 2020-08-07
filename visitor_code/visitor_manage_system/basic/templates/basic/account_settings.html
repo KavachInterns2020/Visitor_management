@@ -5,14 +5,18 @@
 
 <style>
 	.profile-pic{
-		max-width: 300px;
-		max-height:300px;
-		margin: 0 auto;
-		border-radius: 50%;
+		max-width: 250px;
+		max-height:250px;
+		margin: 10px;
+		border-radius: 80%;
 	}
 </style>
 
 <br>
+<!-- <div class="container">{% for message in messages %}
+	{{message}}
+  {% endfor %}
+</div> -->
 <div class="row">
 	<div class="col-md-3">
 		<div class="card card-body">
@@ -29,19 +33,14 @@
 			
 			<form method="POST" action="" enctype="multipart/form-data">
 				{% csrf_token %}
-                 <br><br>
-                 <h4>Name :</h4>{{form.name}}
-                 <br><br>
-                 <h4>Phone Number  :</h4>{{form.Phone_no}}
-                 <br><br>
-                 <h4>Age  :</h4>{{form.age}}
-                 <br><br>
-                 <h4>Gennder  :</h4>{{form.gender}}
-                 <br><br>
-                 <h4>No of People :</h4>{{form.no_of_people}}
-                 <br><br>
-                 <h4>Host Image :</h4>{{form.host_image}}
-                 <br><br>
+                 <!-- <h7>Name :{{form.name}}</h7><br/><br/>
+                 <h7>Phone Number  :{{form.Phone_no}}</h7><br/><br/>
+                 <h7>Age  :{{form.age}}</h7><br/><br/>
+                 <h7>Gennder  :{{form.gender}}</h7><br/><br/> -->
+				 <!-- <h7>Flat no  :{{form.flat_no}}</h7><br/><br/> -->
+				  <!-- <h7>No of People :{{form.no_of_people}} </h7><br/><br/> 
+                 <h7>Host Image :{{form.host_image}}</h7><br/><br/> -->
+				 {{form.as_p}}
 			<input class="btn btn-primary" type="submit" name="Update Information">
 			</form>
 		</div>
