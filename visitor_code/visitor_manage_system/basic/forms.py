@@ -25,16 +25,16 @@ def checkforage(value):
         raise forms.ValidationError("Age is less than required (minimum is 21)")
 
 
-def checkforflat_no(value):
-        for instance in Host.objects.all():
-            if instance.flat_no == value:
-                raise forms.ValidationError("This flat is not available")
+#def checkforflat_no(value):
+ #       for instance in Host.objects.all():
+  #          if instance.flat_no == value:
+   #             raise forms.ValidationError("This flat is not available")
 
 class HostForm(ModelForm):
     no_of_people=forms.IntegerField(validators=[checkforpeople])
     Phone_no=forms.IntegerField(validators=[checkforphone])
     age = forms.IntegerField(validators=[checkforage])
-    flat_no = forms.IntegerField(validators=[checkforflat_no])
+    #flat_no = forms.IntegerField(validators=[checkforflat_no])
     class Meta:
         model = Host
         fields = '__all__'
