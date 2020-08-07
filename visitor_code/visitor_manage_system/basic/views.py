@@ -35,27 +35,33 @@ def createhost(request):
     if request.method == 'POST': 
         form=HostForm1(request.POST)
         form1=createuserform(request.POST)
-        if form1.is_valid() and form.is_valid(): 
-            email = request.POST['email']
-            Phone_no = request.POST['Phone_no']
-            flat_no = request.POST['flat_no']
-            age =      request.POST['age']
-            gender =      request.POST['gender']
-            no_of_people = request.POST['no_of_people']
-            name = request.POST['name']
-            user=form1.save()
-            host = Host(user=user,name=name,age=age,gender=gender,email_id=email,no_of_people=no_of_people,flat_no=flat_no,Phone_no=Phone_no)
-            host.save()
-            
-           
-            group = Group.objects.get(name='host')
-            user.groups.add(group)
-            host =Host.objects.all().order_by('host_id')
-            count = host.count()
-            return render(request,'basic/host.html',{'host':host,'count':count,'k':False})
+        h = Host.objects.all()
+        a= []
+        for i in h:
+            a.append(i.flat_no)
+        print(a)
+        check = int(request.POST['flat_no'])
+        if check not in a:
+            if form1.is_valid() and form.is_valid(): 
+                email = request.POST['email']
+                Phone_no = request.POST['Phone_no']
+                flat_no = request.POST['flat_no']
+                age =      request.POST['age']
+                gender =      request.POST['gender']
+                no_of_people = request.POST['no_of_people']
+                name = request.POST['name']
+                user=form1.save()
+                host = Host(user=user,name=name,age=age,gender=gender,email_id=email,no_of_people=no_of_people,flat_no=flat_no,Phone_no=Phone_no)
+                host.save()
+                group = Group.objects.get(name='host')
+                user.groups.add(group)
+                host =Host.objects.all().order_by('host_id')
+                count = host.count()
+                return render(request,'basic/host.html',{'host':host,'count':count,'k':False})
+            else:
+                return render(request,'basic/create_host.html',{"form":form,"form1":form1,"email_check_msg":"Enter unique email","age_msg":"Minimum age required is 21","phone_no_msg":"Enter valid phone number(with 10 digits)","no_of_people_msg":"Number of residents should be less than 5","error":"Please use a Unique Username or a stronger Password and enter valid data for Signup","message1":"Your password can’t be too similar to your other personal information.","message2": "Your password must contain at least 4 characters","message3":"Your password can’t be a commonly used password."})
         else:
-            return render(request,'basic/create_host.html',{"form":form,"form1":form1,"email_check_msg":"Enter unique email","age_msg":"Minimum age required is 21","phone_no_msg":"Enter valid phone number(with 10 digits)","no_of_people_msg":"Number of residents should be less than 5","error":"Please use a Unique Username or a stronger Password and enter valid data for Signup","message1":"Your password can’t be too similar to your other personal information.","message2": "Your password must contain at least 4 characters","message3":"Your password can’t be a commonly used password."})
-
+            messages.error(request,'Flat no is not unique')
     context={'form1':form1,'k':False,'S':True,'form':form,"email_check_msg":"Enter unique email","age_msg":"Minimum age required is 21 ","phone_no_msg":"Enter valid phone number(with 10 digits)","no_of_people_msg":"Number of residents should be less than 5","message1":"Your password can’t be too similar to your other personal information.","message2": "Your password must contain at least 4 characters","message3":"Your password can’t be a commonly used password."}
     return render(request,'basic/create_host.html',context)
 # @admin_only
