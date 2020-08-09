@@ -13,34 +13,34 @@
             tr{
                 text-align: center;
             }
-            .jumbotron{
-                background-color:blue;
+            th,td,table{
+                border:1px solid #000000;
             }
             
         </style>
     </head>
-    <body>
-        <div class="jumbotron" style="width:75%; margin:auto;">
+    <body style="background-color: darkgray;">
+        <div class="jumbotron" style="width:50%;height: 270px; margin:auto; background-color: white;border: 1px solid black">
             <!-- <tr class="jumbotron"> -->
-            <h3>Number of hosts currently present:  <span style="font-size: 33px;">{{count}}</span></h3>
+            <h4>Number of hosts currently present:  <span style="font-size: 33px;">{{count}}</span></h4>
             <!-- <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p> -->
             <hr class="my-4">
             <p>To add new host click the button below.</p>
-            <a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'createhost' %}" style="width: 60%; height: 35px; margin: auto; font-weight: 700 ;">Create host</a>
+            <a class="btn btn-outline  btn-sm btn-block" href="{% url 'createhost' %}" style="width: 60%; height: 35px; margin: auto; font-weight: 700 ;background-color:rgba(0, 0, 255, 0.692);color: white;">Create host</a>
             <!-- </tr> -->
         </div>
 
         <div class="row">
             <div class="col-md mx-5 my-5">
-                <div class="card card-body" style="width: 80%; margin: auto;">
+                <div class="card card-body" style="border:2px solid black;margin-left: 20px;margin-right: 20px;">
                     <table class="table" >
                         <h3 class="display-5">Host Details</h3>
-                        <tr style="background-color: rgb(236, 230, 201);">
-                            <th>HOST ID</th>
-                            <th>NAME</th>
-                            <th>PHONE NO.</th>
-                            <th>EMAIL ID</th>
-                            <th>EDIT DETAILS</th> 
+                        <tr style="background-color:#43484d; color: white;">
+                            <th style="border-top: rgb(34, 34, 34);">HOST ID</th>
+                            <th style="border-top: black;">NAME</th>
+                            <th style="border-top: black;">PHONE NO.</th>
+                            <th style="border-top: black;">EMAIL ID</th>
+                            <th style="border-top: black;">EDIT DETAILS</th> 
                         </tr>
                         {% for i in host %}
                         <tr>
