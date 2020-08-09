@@ -173,8 +173,13 @@ def createevent(request):
             event_purpose = request.POST['event_purpose']
             for i in organizer:
                 org = i
-            event = Event(tag=tag,organizer=org,event_date_time=event_date_time,event_purpose=event_purpose)
-            event.save()
+            try:
+                event = Event(tag=tag,organizer=org,event_date_time=event_date_time,event_purpose=event_purpose)
+                event.save()
+            except:
+                messages.error(request,f"Other organizer created event on same day ")
+
+
         if group != 'host':
             organizer= int(request.POST['organizer'])
             organizer = Host.objects.filter(host_id=organizer)
@@ -183,8 +188,12 @@ def createevent(request):
             event_purpose = request.POST['event_purpose']
             for i in organizer:
                 org = i
-            event = Event(tag=tag,organizer=org,event_date_time=event_date_time,event_purpose=event_purpose)
-            event.save()
+            try:
+                event = Event(tag=tag,organizer=org,event_date_time=event_date_time,event_purpose=event_purpose)
+                event.save()
+            except:
+                messages.error(request,f"Other organizer created event on same day ")
+                messages.error(request,f"Contact the admin for more details ")
         # form = EventForm(request.POST)
         # if form.is_valid():
         #     form.save()

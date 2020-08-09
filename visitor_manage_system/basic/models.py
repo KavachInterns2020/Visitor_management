@@ -92,7 +92,7 @@ class Event(models.Model):
     tag = models.CharField(max_length=12,choices=TAG,blank=True,null=True,default='blank')
     event_id = models.AutoField(primary_key=True)
     organizer = models.ForeignKey(Host,null=True, on_delete=models.SET_NULL)
-    event_date_time =models.DateTimeField(null=False,max_length=20,default='',unique=True) 
+    event_date_time =models.DateField(null=False,max_length=20,default='',unique=True) 
     event_purpose = models.CharField(max_length=12,choices=EVENT_PURPOSE)
 
     def __str__(self):
