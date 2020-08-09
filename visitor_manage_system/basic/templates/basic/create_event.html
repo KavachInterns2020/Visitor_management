@@ -21,8 +21,14 @@
                 <h4>Tag :</h4>{{form.tag}}
                  <br><br>
                  {% if  request.user.is_active and not request.user.is_staff and  not request.user.is_superuser%}
-                <input type="hidden" name='organizer' value={{request.user.id}}>
-                 {% else %}
+                <input type="hidden" id="event98" name='organizer' value="{{request.user.id}}">
+                    <script>
+                        window.onload = function() {
+                        var localVariable = document.getElementById('event98').value;
+                        document.getElementById('event98').value = localVariable-3;
+                        };
+                    </script>
+                 {% else %} -->
                  <h4>Organizer  :</h4>{{form.organizer}}
                  {% endif %}
                  <br><br>

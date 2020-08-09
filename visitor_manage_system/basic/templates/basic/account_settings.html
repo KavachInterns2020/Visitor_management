@@ -33,14 +33,14 @@
 			
 			<form method="POST" action="" enctype="multipart/form-data">
 				{% csrf_token %}
-                 <!-- <h7>Name :{{form.name}}</h7><br/><br/>
+                 <h7>Name :{{form.name}}</h7><br/><br/>
                  <h7>Phone Number  :{{form.Phone_no}}</h7><br/><br/>
                  <h7>Age  :{{form.age}}</h7><br/><br/>
-                 <h7>Gennder  :{{form.gender}}</h7><br/><br/> -->
+                 <h7>Gennder  :{{form.gender}}</h7><br/><br/> 
 				 <!-- <h7>Flat no  :{{form.flat_no}}</h7><br/><br/> -->
-				  <!-- <h7>No of People :{{form.no_of_people}} </h7><br/><br/> 
-                 <h7>Host Image :{{form.host_image}}</h7><br/><br/> -->
-				 {{form.as_p}}
+				  <h7>No of People :{{form.no_of_people}} </h7><br/><br/> 
+                 <h7>Host Image :{{form.host_image}}</h7><br/><br/>
+				 <!-- {{form.as_p}} -->
 			<input class="btn btn-primary" type="submit" name="Update Information">
 			</form>
 		</div>

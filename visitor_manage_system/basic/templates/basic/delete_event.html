@@ -24,7 +24,11 @@
             <hr class="my-4">
             <form method="POST" action="{% url 'deleteevent' form.event_id %}">
                 {% csrf_token %}
+                {% if request.user.is_active and not request.user.is_superuser and not request.user.is_staff%}
+                <a class="btn btn-dark btn-lg" href="{% url 'userpage' %}">Cancel</a>
+                {% else %}
                 <a class="btn btn-dark btn-lg" href="{% url 'host' %}">Cancel</a>
+                {% endif %}
                 <input class="btn btn-danger btn-lg" type="submit" name="Confirm">
             </form>
         </div>

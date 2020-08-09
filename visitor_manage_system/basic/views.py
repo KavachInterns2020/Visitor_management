@@ -232,7 +232,7 @@ def updateevent(request,pk):
                 return redirect('/user')
             if group != 'host':
                 return redirect('/events',{'form':event,'k':False})
-            # return render(request,'basic/events.html',{'form':event,'k':False})
+            return render(request,'basic/events.html',{'form':event,'k':False})
     context={'form':form,'k':False}
     return render(request,'basic/create_event.html',context)
 @login_required(login_url='/')
@@ -387,9 +387,21 @@ def accountsettings(request):
     user = request.user.host
     form = HostForm1(instance=user)
     if request.method == 'POST':
-        form = HostForm(request.POST,request.FILES,instance=user)
-        form.save()
-        messages.success(request,f"Account successfully updated ")
+        a = request.POST['age']
+        a = int(a)
+        if a>100:
+            messages.error(request,'Age is invalid input')
+        else:
+            try:
+                form = HostForm(request.POST,request.FILES,instance=user)
+                form.save()
+                messages.success(request,f"Account successfully updated ")
+            except Exception as e:
+                user = request.user.host
+                form = HostForm1(instance=user)
+                messages.error(request,f'error message is {e}')
+                return render(request,'basic/account_settings.html',{'form':form})
+
     return render(request,'basic/account_settings.html',{'form':form})
 
 @login_required(login_url='/')
