@@ -393,6 +393,7 @@ def accountsettings(request):
             messages.error(request,'Age is invalid input')
         else:
             try:
+                # print(request.POST)
                 form = HostForm(request.POST,request.FILES,instance=user)
                 form.save()
                 messages.success(request,f"Account successfully updated ")
