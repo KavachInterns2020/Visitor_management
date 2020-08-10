@@ -28,7 +28,7 @@
          {%  csrf_token %}
         <div class="container">
             <div class="card-body  col mx-5 my-5" id="visitor">
-                <p class="display-4" style="font-size: 45px;text-shadow: 2px 2px #1a1919;font-style: italic; padding-left: 30px;">Enter visitor details</p>
+                <p class="display-4" style="font-size: 45px;text-shadow: 2px 2px #1a1919;font-style:normal; padding-left: 30px;">Enter visitor details</p>
                 <h4>Name :<br></h4>{{form.name}}
                 <br><br>
                 <h4>Phone No :</h4>{{form.Phone_no}}
@@ -39,9 +39,9 @@
                 <br><br>
                 <h4>Email ID :</h4>{{form.email_id}}
                 <br><br>
-                <h4>Visitor image :</h4>{{form.visitor_image}}
+                <h7>Visitor image :{{form.visitor_image}}</h7>
                 <br><br>
-                <h4>ID proof :</h4>{{form.id_proof}}
+                <h7>ID proof :{{form.id_proof}}</h7>
                 <br><br>
                 <!--{{form.as_p}}-->
                 <input class="btn btn-primary btn-lg" type="submit" name="Submit" style="width: 135px;"> 

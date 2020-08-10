@@ -74,7 +74,7 @@
                                 <a class="btn btn-sm btn-info" href="{% url  'updateevent' i.event_id  %}">Update</a> 
                                 <a class="btn btn-sm btn-danger" href="{% url  'deleteevent' i.event_id  %}">Delete</a>
                             </th>
-                            <th> <a class="btn btn-sm btn-light" href="{% url  'analysispage' i.event_id  %}">View</a>                            </th>
+                            <th> <a class="btn btn-sm btn-light" href="{% url  'analysispage' i.event_id  %}">View</a>     </th>
                         </tr>
                         {% endfor %}
                     </table>

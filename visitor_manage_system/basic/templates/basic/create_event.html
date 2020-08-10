@@ -22,12 +22,12 @@
             {%  csrf_token %}
             <!-- <div class="col mx-5 my-5" > -->
                 <div class="card card-body" id="event">
-                    <p class="display-4" style="font-size: 45px;text-shadow: 2px 2px #1a1919;font-style: italic; padding-left: 30px; margin-bottom: 0px;">Enter event details</p>        
-                    <p style="font-size: 14px;"><span style="font-weight: 600; padding-left: 30px;">NOTE: </span>{{check_msg}}</p>
+                    <p class="display-4" style="font-size: 39px;text-shadow: 2px 2px #1a1919;font-style: normal; padding-left: 20px; margin-bottom: 0px;">Enter event details</p>     <br/>   
+                    <!-- <p style="font-size: 14px;"><span style="font-weight: 600px; padding-left: 30px;">NOTE: </span>{{check_msg}}</p> -->
                     <h4>Tag :</h4>{{form.tag}}
                     <br>
                     {% if  request.user.is_active and not request.user.is_staff and  not request.user.is_superuser%}
-                    <input type="hidden" name='organizer' value={{request.user.id}}>
+                    <input type="hidden" id="event98" name='organizer' value={{request.user.id}}>
                     <script>
                         window.onload = function() {
                         var localVariable = document.getElementById('event98').value;
