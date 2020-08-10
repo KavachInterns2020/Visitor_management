@@ -14,8 +14,9 @@
 
 <body>
      
-  <nav class=" navbar navbar-expand-lg navbar-dark bg-dark  my">
-    <a class="navbar-brand" href="#">Visitor Mgmt System</a>
+
+  <nav class=" navbar navbar-expand-lg navbar-dark bg-dark  my-3">
+    <a class="navbar-brand" href="#">Visitor Management System</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
       aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -88,7 +89,7 @@
     <div>
       <ul class="nav-item px-3">
          <button type="button" class="btn btn-primary" >
-              <a class="btn btn-primary"  href="/reset_password/" >resetpassword</a>
+              <a class="btn btn-primary"  href="/reset_password/" >Forgotpassword?</a>
          </button>
        </ul>
    </div>
@@ -286,7 +287,9 @@
 
 {% if not  request.user.is_active and  not request.user.is_superuser  and not request.user.is_staff%}
 
-<b>hi</b>
+<h1 style="text-align: center;">Welcome to Kavach Apartments!</h1>
+
+
 {% endif %}
 
 
