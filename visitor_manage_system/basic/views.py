@@ -334,7 +334,7 @@ def handlelogin(request):
             if group != 'host':
                 return redirect('/') 
         else:
-            messages.error(request,'Creadential wrong')
+            messages.error(request,'Credential wrong')
             visitor = VisitDetails.objects.all().order_by('-visit_id')
             return render(request,'basic/dashboard.html',{'visitor':visitor,'k':True})
     visitor = VisitDetails.objects.all().order_by('-visit_id')
