@@ -177,7 +177,7 @@ def createevent(request):
                 event = Event(tag=tag,organizer=org,event_date_time=event_date_time,event_purpose=event_purpose)
                 event.save()
             except:
-                messages.error(request,f"Other organizer created event on same day ")
+                messages.error(request,f"Other organizer created event on same day .Please contact admin or change date for event")
 
 
         if group != 'host':
