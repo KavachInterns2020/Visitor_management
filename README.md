@@ -33,4 +33,5 @@ user(host): host will be given a user name and password to login. It will be iss
  <img src="https://github.com/KavachNetworks/Visitor_management/blob/master/support%20image/Screenshot%20from%202020-08-11%2015-21-21.png"  width="400" height="250">
  <br/>
  <p>Now be in the folder where manage.py is present and run command as</p>
-<pre><code>ppython manage.py runserver</code></pre>
+<pre><code>python manage.py runserver</code></pre>
+<p>Copy and paste the url in browser or type "127.0.0.1:8000" in browser</p>
