@@ -25,13 +25,14 @@ user(host): host will be given a user name and password to login. It will be iss
 <img src="https://github.com/KavachNetworks/Visitor_management/blob/master/support%20image/Screenshot%20from%202020-08-11%2013-42-45.png"  width="400" height="250">
 <br/>
 <h3>3. Create credentials for admin</h3>
+<p>create it in Users</p>
 <img src="https://github.com/KavachNetworks/Visitor_management/blob/master/support%20image/Screenshot%20from%202020-08-11%2015-21-45.png"  width="400" height="250">
- <h3>and checkbox superuser and chosen groups as admin</h3>
+ <h3>and check the  checkbox of superuser and chosen groups as admin</h3>
  <img src="https://github.com/KavachNetworks/Visitor_management/blob/master/support%20image/Screenshot%20from%202020-08-11%2015-21-55.png"  width="400" height="250">
  <br/>
- <h3>4. Create credentials for entryperson. Username as entryperson </h3>
+ <h3>4. Create credentials for entryperson. create it in Users </h3>
 <img src="https://github.com/KavachNetworks/Visitor_management/blob/master/support%20image/Screenshot%20from%202020-08-11%2015-21-07.png"  width="400" height="250">
- <h3>and checkbox staff status and chosen groups as entryperson</h3>
+ <h3>and check checkbox staff status and chosen groups as entryperson</h3>
  <img src="https://github.com/KavachNetworks/Visitor_management/blob/master/support%20image/Screenshot%20from%202020-08-11%2015-21-21.png"  width="400" height="250">
  <br/>
  <p>Now be in the folder where manage.py is present and run command as</p>
