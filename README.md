@@ -16,22 +16,21 @@ user(host): host will be given a user name and password to login. It will be iss
 <pre><code>python manage.py makemigrations</code></pre>
 <pre><code>python manage.py migrate</code></pre>
 <pre><code>python manage.py createsuperuser</code></pre>
-<h5>after creating superuser then go to url "127.0.0.1/admin" </h5>
-<h5>and login, Then create group in Groups</h5>
+<h5>2.after creating superuser then go to url "127.0.0.1/admin" and login, Then create group in Groups</h5>
 <img src="https://github.com/KavachNetworks/Visitor_management/blob/master/support%20image/Screenshot%20from%202020-08-11%2013-39-57.png"  width="400" height="250">
-<h3>create three group admin,entryperson,host</h3>
+<h3>2. Create three group admin,entryperson,host</h3>
 <img src="https://github.com/KavachNetworks/Visitor_management/blob/master/support%20image/Screenshot%20from%202020-08-11%2013-42-45.png"  width="400" height="250">
 <br/>
-<h3>Create credentials for admin</h3>
+<h3>3. Create credentials for admin</h3>
 <img src="https://github.com/KavachNetworks/Visitor_management/blob/master/support%20image/Screenshot%20from%202020-08-11%2015-21-45.png"  width="400" height="250">
  <h3>and checkbox superuser and chosen groups as admin</h3>
  <img src="https://github.com/KavachNetworks/Visitor_management/blob/master/support%20image/Screenshot%20from%202020-08-11%2015-21-55.png"  width="400" height="250">
  <br/>
- <h3>Create credentials for entryperson. Username as entryperson </h3>
+ <h3>4. Create credentials for entryperson. Username as entryperson </h3>
 <img src="https://github.com/KavachNetworks/Visitor_management/blob/master/support%20image/Screenshot%20from%202020-08-11%2015-21-07.png"  width="400" height="250">
  <h3>and checkbox staff status and chosen groups as entryperson</h3>
  <img src="https://github.com/KavachNetworks/Visitor_management/blob/master/support%20image/Screenshot%20from%202020-08-11%2015-21-21.png"  width="400" height="250">
  <br/>
  <p>Now be in the folder where manage.py is present and run command as</p>
 <pre><code>python manage.py runserver</code></pre>
-<p>Copy and paste the url in browser or type "127.0.0.1:8000" in browser</p>
+<p>5. Copy and paste the url in browser or type "127.0.0.1:8000" in browser</p>
