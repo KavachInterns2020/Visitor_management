@@ -10,10 +10,10 @@ Entryperson : Will be having the responsible to create visitor comming to visit 
 user(host): host will be given a user name and password to login. It will be issued by admin.host can create event,update event,delete event and see his account.And also update account.<br/>
 
 # Home page
-<img src="https://github.com/KavachNetworks/Visitor_management/blob/master/support%20image/Screenshot%20from%202020-08-11%2012-04-00.png"  width="700" height="390">
+<img src="https://github.com/KavachNetworks/Visitor_management/blob/master/support%20image/Screenshot%20from%202020-08-11%2012-04-00.png"  width="600" height="320">
 
 # Login
-<img src="https://github.com/KavachNetworks/Visitor_management/blob/master/support%20image/Screenshot%20from%202020-08-11%2012-04-12.png"  width="700" height="390">
+<img src="https://github.com/KavachNetworks/Visitor_management/blob/master/support%20image/Screenshot%20from%202020-08-11%2012-04-12.png"  width="600" height="320">
 
 # Reset Password
-<img src="https://github.com/KavachNetworks/Visitor_management/blob/master/support%20image/Screenshot%20from%202020-08-11%2012-04-17.png"  width="700" height="390">
+<img src="https://github.com/KavachNetworks/Visitor_management/blob/master/support%20image/Screenshot%20from%202020-08-11%2012-04-17.png"  width="600" height="320">
