@@ -10,4 +10,4 @@ Entryperson : Will be having the responsible to create visitor comming to visit 
 user(host): host will be given a user name and password to login. It will be issued by admin.host can create event,update event,delete event and see his account.And also update account.<br/>
 
 # Home page
-![](https://github.com/KavachNetworks/Visitor_management/blob/master/support%20image/Screenshot%20from%202020-08-11%2012-04-00.png)
+![](https://github.com/KavachNetworks/Visitor_management/blob/master/support%20image/Screenshot%20from%202020-08-11%2012-04-00.png| width=80)
