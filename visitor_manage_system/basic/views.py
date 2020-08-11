@@ -173,12 +173,9 @@ def createevent(request):
             event_purpose = request.POST['event_purpose']
             event_date_time= str(event_date_time)
             date_object = datetime.strptime(event_date_time, '%Y-%m-%d').date()
-            print(type(date_object))
-            print(date_object)  
             if date.today() >=date_object :
-                  return render(request,'basic/create_event.html',{'form':form,'k':False,"date_msg":"Please enter valid date"})
-            
-            
+                messages.error(request,'Got wrong input date')
+                return render(request,'basic/create_event.html',{'form':form,'k':False,"date_msg":"Please enter valid date"})
             for i in organizer:
                 org = i
             try:
@@ -194,11 +191,8 @@ def createevent(request):
             tag =request.POST['tag']
             event_date_time = request.POST['event_date_time']
             event_purpose = request.POST['event_purpose']
-            
             event_date_time= str(event_date_time)
             date_object = datetime.strptime(event_date_time, '%Y-%m-%d').date()
-            print(type(date_object))
-            print(date_object)  
             if date.today() >=date_object :
                   return render(request,'basic/create_event.html',{'form':form,'k':False,"date_msg":"Please enter valid date"})
             
