@@ -19,16 +19,18 @@ user(host): host will be given a user name and password to login. It will be iss
 <h5>after creating superuser then go to url "127.0.0.1/admin" </h5>
 <h5>and login, Then create group in Groups</h5>
 <img src="https://github.com/KavachNetworks/Visitor_management/blob/master/support%20image/Screenshot%20from%202020-08-11%2013-39-57.png"  width="400" height="250">
-<h6>create three group admin,entryperson,host</h6>
+<h3>create three group admin,entryperson,host</h3>
 <img src="https://github.com/KavachNetworks/Visitor_management/blob/master/support%20image/Screenshot%20from%202020-08-11%2013-42-45.png"  width="400" height="250">
 <br/>
-<h5>Create credentials for admin</h5>
+<h3>Create credentials for admin</h3>
 <img src="https://github.com/KavachNetworks/Visitor_management/blob/master/support%20image/Screenshot%20from%202020-08-11%2015-21-45.png"  width="400" height="250">
- <h7>and checkbox superuser and chosen groups as admin</h7>
+ <h3>and checkbox superuser and chosen groups as admin</h3>
  <img src="https://github.com/KavachNetworks/Visitor_management/blob/master/support%20image/Screenshot%20from%202020-08-11%2015-21-55.png"  width="400" height="250">
  <br/>
- <h5>Create credentials for entryperson. Username as entryperson </h5>
+ <h3>Create credentials for entryperson. Username as entryperson </h3>
 <img src="https://github.com/KavachNetworks/Visitor_management/blob/master/support%20image/Screenshot%20from%202020-08-11%2015-21-07.png"  width="400" height="250">
- <h7>and checkbox staff status and chosen groups as entryperson</h7>
+ <h3>and checkbox staff status and chosen groups as entryperson</h3>
  <img src="https://github.com/KavachNetworks/Visitor_management/blob/master/support%20image/Screenshot%20from%202020-08-11%2015-21-21.png"  width="400" height="250">
  <br/>
+ <p>Now be in the folder where manage.py is present and run command as</p>
+<pre><code>ppython manage.py runserver</code></pre>
