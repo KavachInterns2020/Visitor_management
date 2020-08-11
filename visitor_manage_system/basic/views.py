@@ -280,11 +280,18 @@ def visitdetails(request):
         a2=a['purpose']
         a3=a['visit_detail']
         a4=a['flat_no']
-        a3 = Visitor.objects.get(visitor_id=a3)
-        visitdetails = VisitDetails(duration=a1,purpose=a2,visit_detail=a3,flat_no=a4)
-        visitdetails.save()
-        # messages.success(request,"visit entered successfull")
-        return redirect('/')
+        check = Host.objects.all()
+        k = []
+        for i in check:
+            k.append(i.flat_no)
+        if int(a4) in k:
+            a3 = Visitor.objects.get(visitor_id=a3)
+            visitdetails = VisitDetails(duration=a1,purpose=a2,visit_detail=a3,flat_no=a4)
+            visitdetails.save()
+            # messages.success(request,"visit entered successfull")
+            return redirect('/')
+        else:
+            messages.error(request,'That flat number is not allocated or entered wrong detail')
     context={'form':form,'count':count,'k':False}
     return render(request,'basic/visitdetails.html',context)
 

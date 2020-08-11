@@ -50,8 +50,7 @@ class VisitDetails(models.Model):
         ('Home_Service','Home_Service'),
         ('Clients','Clients'),
         ('Delivery_Service','Delivery_Service'),
-        ('General_service','General_service'),
-        ('Event','Event')
+        ('General_service','General_service')
     )
     DURATION = (
         ('1 hour','1 hour'),
