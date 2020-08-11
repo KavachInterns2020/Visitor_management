@@ -12,11 +12,11 @@ user(host): host will be given a user name and password to login. It will be iss
 # Local setup for this project
 <pre><code>pip install django <br/></code></pre>
 <pre><code>pip install pillow</code></pre>
-<h5>1. Go to visitor_manage_system file and type in cmd or in terminal </h5>
+<h3>1. Go to visitor_manage_system file and type in cmd or in terminal </h3>
 <pre><code>python manage.py makemigrations</code></pre>
 <pre><code>python manage.py migrate</code></pre>
 <pre><code>python manage.py createsuperuser</code></pre>
-<h5>2.after creating superuser then go to url "127.0.0.1/admin" and login, Then create group in Groups</h5>
+<h3>2. After creating superuser then go to url "127.0.0.1/admin" and login, Then create group in Groups</h3>
 <img src="https://github.com/KavachNetworks/Visitor_management/blob/master/support%20image/Screenshot%20from%202020-08-11%2013-39-57.png"  width="400" height="250">
 <h3>2. Create three group admin,entryperson,host</h3>
 <img src="https://github.com/KavachNetworks/Visitor_management/blob/master/support%20image/Screenshot%20from%202020-08-11%2013-42-45.png"  width="400" height="250">
