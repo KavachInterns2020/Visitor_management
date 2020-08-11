@@ -11,6 +11,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
 from django.contrib import messages
 from django.shortcuts import get_object_or_404
+from datetime import date
 
 # @login_required(login_url='/')
 def index(request):
@@ -268,7 +269,7 @@ def visitdetails(request):
     form = VisitDetailsForm()
     visitdetail = VisitDetails.objects.all()
     count = visitdetail.count()
-    date_object = datetime.date.today()
+    date_object = date.today()
     date_object = str(date_object)
     count = 0
     for i in visitdetail:
