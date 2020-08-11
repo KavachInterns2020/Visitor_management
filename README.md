@@ -12,7 +12,7 @@ user(host): host will be given a user name and password to login. It will be iss
 # Local setup for this project
 <pre><code>pip install django <br/></code></pre>
 <pre><code>pip install pillow</code></pre>
-1.<h5>Go to visitor_manage_system file and type in cmd or in terminal </h5>
+<h5>1. Go to visitor_manage_system file and type in cmd or in terminal </h5>
 <pre><code>python manage.py makemigrations</code></pre>
 <pre><code>python manage.py migrate</code></pre>
 <pre><code>python manage.py createsuperuser</code></pre>
