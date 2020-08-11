@@ -17,3 +17,5 @@ user(host): host will be given a user name and password to login. It will be iss
 
 # Reset Password
 <img src="https://github.com/KavachNetworks/Visitor_management/blob/master/support%20image/Screenshot%20from%202020-08-11%2012-04-17.png"  width="600" height="320">
+
+<h1>Admin,host,entryperson</h1><h6>can login from here</h6>
