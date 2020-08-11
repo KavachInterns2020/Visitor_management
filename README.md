@@ -9,7 +9,7 @@ Admin : admin can register host,visitor,event and admin can do create update and
 Entryperson : Will be having the responsible to create visitor comming to visit and he/she can entry the purpose of person entry.And also have the responsible to enter the visitor comming to visit the event. <br/>
 user(host): host will be given a user name and password to login. It will be issued by admin.host can create event,update event,delete event and see his account.And also update account.<br/>
 
-# Local setup for project
+# Local setup for this project
 <pre><code>pip install django</code></pre>
 <pre><code>pip install pillow</code></pre>
 <h5>Go to visitor_manage_system file and type in cmd or in terminal </h5>
@@ -21,3 +21,5 @@ user(host): host will be given a user name and password to login. It will be iss
 <img src="https://github.com/KavachNetworks/Visitor_management/blob/master/support%20image/Screenshot%20from%202020-08-11%2013-39-57.png"  width="400" height="250">
 <h6>create three group admin,entryperson,host</h6>
 <img src="https://github.com/KavachNetworks/Visitor_management/blob/master/support%20image/Screenshot%20from%202020-08-11%2013-42-45.png"  width="400" height="250">
+<h5>To create credentials for admin,entryperson</h5>
+
