@@ -10,8 +10,8 @@ Entryperson : Will be having the responsible to create visitor comming to visit 
 user(host): host will be given a user name and password to login. It will be issued by admin.host can create event,update event,delete event and see his account.And also update account.<br/>
 
 # Local setup for this project
-<pre><code>pip install django</code></pre>
-<pre><code>pip install pillow</code></pre>
+<pre><code>pip install django <br/>pip install pillow</code></pre>
+<!-- <pre><code></code></pre> -->
 <h5>Go to visitor_manage_system file and type in cmd or in terminal </h5>
 <pre><code>python manage.py makemigrations</code></pre>
 <pre><code>python manage.py migrate</code></pre>
