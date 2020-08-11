@@ -171,6 +171,7 @@ def createevent(request):
             tag =request.POST['tag']
             event_date_time = request.POST['event_date_time']
             event_purpose = request.POST['event_purpose']
+            
             for i in organizer:
                 org = i
             try:
