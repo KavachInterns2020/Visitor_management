@@ -175,7 +175,7 @@ def createevent(request):
             event_date_time= str(event_date_time)
             date_object = datetime.strptime(event_date_time, '%Y-%m-%d').date()
             if date.today() >=date_object :
-                messages.error(request,'Got wrong input date')
+                messages.success(request,f"Got wrong input date")
                 return render(request,'basic/create_event.html',{'form':form,'k':False,"date_msg":"Please enter valid date"})
             for i in organizer:
                 org = i

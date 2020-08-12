@@ -102,8 +102,6 @@ class EventForm(ModelForm):
         event_date_time=self.cleaned_data.get("event_date_time")
         event_date_time= str(event_date_time)
         date_object = datetime.strptime(event_date_time, '%Y-%m-%d').date()
-        print(type(date_object))
-        print(date_object)  
         if date.today() >=date_object :
             raise forms.ValidationError(u'Please enter valid date')
         return event_date_time
