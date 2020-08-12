@@ -42,6 +42,9 @@ user(host): host will be given a user name and password to login. It will be iss
  <h3>and check checkbox staff status and chosen groups as entryperson</h3>
  <img src="https://github.com/KavachNetworks/Visitor_management/blob/master/support%20image/Screenshot%20from%202020-08-11%2015-21-21.png"  width="400" height="250">
  <br/>
+ <h3>There is a mail service to send  password reset so need to add email id and password in visitor_manage_system/visitor_manage_system/settings.py at last <br>EMAIL_HOST_USER =''
+<br>EMAIL_HOST_PASSWORD ='' 
+ </h3>
  <p>Now be in the folder where manage.py is present and run command as</p>
 <pre><code>python manage.py runserver</code></pre>
 <p>By default it will be login as superuser. Just logout on top right and try to login as admin username and password which you created during superuser login</p>
