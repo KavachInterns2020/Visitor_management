@@ -10,10 +10,6 @@ Entryperson : Will be having the responsible to create visitor coming to visit a
 user(host): host will be given a user name and password to login. It will be issued by admin.host can create event,update event,delete event and see his account.And also update account.<br/>
 
 # Local setup for this project
-<p>Create virtual environment</p>
-<pre><code>python -m venv foldername<br/></code></pre>
-<pre><code>source foldername/bin/activate<br/></code></pre>
-<pre><code>cd foldername<br/></code></pre>
 <p>Clone this repository and run the following commands to install requirements:</p>
 <pre><code>git clone https://github.com/KavachNetworks/Visitor_management.git<br/></code></pre>
 <p>Go to Visitor_management file</p>
