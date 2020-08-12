@@ -21,6 +21,7 @@ user(host): host will be given a user name and password to login. It will be iss
 <h3>1. Go to visitor_manage_system file and run following commands : </h3>
 <pre><code>cd visitor_manage_system</code></pre>
 <pre><code>python manage.py makemigrations</code></pre>
+<pre><code>python manage.py migrate</code></pre>
 <pre><code>python manage.py createsuperuser</code></pre>
 <p>create super user name,email,password,confirm password then run following commands:</p>
 <pre><code>python manage.py runserver</code></pre>
