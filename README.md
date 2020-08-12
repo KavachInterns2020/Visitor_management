@@ -44,4 +44,5 @@ user(host): host will be given a user name and password to login. It will be iss
  <br/>
  <p>Now be in the folder where manage.py is present and run command as</p>
 <pre><code>python manage.py runserver</code></pre>
+<p>By default it will be login as superuser. Just logout on top right and try to login as admin username and password which you created during superuser login</p>
 <p>5. Copy and paste the url in browser or type "127.0.0.1:8000" in browser</p>
