@@ -16,9 +16,12 @@ user(host): host will be given a user name and password to login. It will be iss
 <p>Clone this repository and run the following commands to install requirements:</p>
 <pre><code>git clone https://github.com/KavachNetworks/Visitor_management.git<br/></code></pre>
 <p>Go to Visitor_management file</p>
+<pre><code>cd Visitor_management<br/></code></pre>
 <pre><code>pip install -r requirements.txt<br/></code></pre>
 <h3>1. Go to visitor_manage_system file and run following commands : </h3>
+<pre><code>cd visitor_manage_system</code></pre>
 <pre><code>python manage.py makemigrations</code></pre>
+<pre><code>python manage.py migrate</code></pre>
 <pre><code>python manage.py createsuperuser</code></pre>
 <p>create super user name,email,password,confirm password then run following commands:</p>
 <pre><code>python manage.py runserver</code></pre>
