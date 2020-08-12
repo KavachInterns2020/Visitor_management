@@ -10,10 +10,13 @@ Entryperson : Will be having the responsible to create visitor comming to visit 
 user(host): host will be given a user name and password to login. It will be issued by admin.host can create event,update event,delete event and see his account.And also update account.<br/>
 
 # Local setup for this project
+<p>Create virtual environment</p>
+<pre><code>python3 -m venv foldername<br/></code></pre>
+<pre><code>source foldername/bin/activate<br/></code></pre>
 <p>Clone this repository and run the following commands:</p>
 <pre><code>pip install django <br/></code></pre>
 <pre><code>pip install pillow</code></pre>
-<h3>1. Go to visitor_manage_system file(cloned repository) and run following commands: </h3>
+<h3>1. Go to Visitor_manage/visitor_manage_system file(cloned repository) and run following commands : </h3>
 <pre><code>python manage.py makemigrations</code></pre>
 <pre><code>python manage.py migrate</code></pre>
 <pre><code>python manage.py createsuperuser</code></pre>
