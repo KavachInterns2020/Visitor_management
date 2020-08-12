@@ -13,12 +13,10 @@ user(host): host will be given a user name and password to login. It will be iss
 <p>Create virtual environment</p>
 <pre><code>python3 -m venv foldername<br/></code></pre>
 <pre><code>source foldername/bin/activate<br/></code></pre>
-<p>Clone this repository and run the following commands:</p>
-<pre><code>pip install django <br/></code></pre>
-<pre><code>pip install pillow</code></pre>
+<p>Clone this repository and run the following commands to install requirements:</p>
+<pre><code>pip install -r requirements.txt<br/></code></pre>
 <h3>1. Go to Visitor_manage/visitor_manage_system file(cloned repository) and run following commands : </h3>
 <pre><code>python manage.py makemigrations</code></pre>
-<pre><code>python manage.py migrate</code></pre>
 <pre><code>python manage.py createsuperuser</code></pre>
 <p>create super user name,email,password,confirm password then run following commands:</p>
 <pre><code>python manage.py runserver</code></pre>
