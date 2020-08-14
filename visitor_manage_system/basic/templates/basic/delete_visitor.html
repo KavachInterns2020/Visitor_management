@@ -12,7 +12,7 @@
             }
             p{
                 font-size: 20px;
-                font-style: italic;
+                font-style: normal;
             }
         </style>
         </style>
@@ -24,7 +24,7 @@
             <hr class="my-4">
             <form method="POST" action="{% url 'deletevisitor' form.visitor_id %}">
                 {% csrf_token %}
-                <a class="btn btn-dark btn-lg" href="{% url 'host' %}">Cancel</a>
+                <a class="btn btn-dark btn-lg" href="{% url 'visitor' %}">Cancel</a>
                 <input class="btn btn-danger btn-lg" type="submit" name="Confirm">
             </form>
         </div>
