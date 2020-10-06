@@ -5,9 +5,9 @@ Three types of user :<br/>
 2.Entryperson<br/>
 3.user(host)<br/>
 
-Admin : admin can register host,visitor,event and admin can do create update and delete operation on host,vistor,event.<br/>
-Entryperson : Will be having the responsible to create visitor coming to visit and he/she can entry the purpose of person entry.And also have the responsible to enter the visitor comming to visit the event. <br/>
-user(host): host will be given a user name and password to login. It will be issued by admin.host can create event,update event,delete event and see his account.And also update account.<br/>
+Admin : Admin can register host,visitor,event and admin can do create update and delete operation on host,vistor,event.<br/>
+Entryperson : Will be having the responsibility of entering the visitor coming to visit and he/she can enter the purpose of their visit.And also have the responsibility to enter the event visitor is coming to attend. <br/>
+user(host): Host will be given a user name and password to login. It will be issued by admin.Host can create event,update event,delete event and see his account.And also update account.<br/>
 
 # Local setup for this project
 <p>Clone this repository and run the following commands to install requirements:</p>
